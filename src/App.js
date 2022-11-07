@@ -10,10 +10,16 @@ function App() {
     {id: 'cg2', text: 'Learn all about the course' },
     {id: 'cg3', text: 'Help other student'}
   ];
+
+  const addNewGoalHandler = (newGoal)=>{
+  courseGoals.push(newGoal)
+  console.log(courseGoals)
+  }
+
   return (
     <div className="course-goals">
       <h1> Hi, this is Reactjs!</h1>
-      <NewGoal/>
+      <NewGoal onAddGoal={addNewGoalHandler}/>
       <GoalList goals={courseGoals}/>
     </div>
   );

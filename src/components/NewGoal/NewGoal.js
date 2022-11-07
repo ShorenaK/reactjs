@@ -1,13 +1,15 @@
 import React from 'react'
 import './NewGoal.css'
-export default function NewGoal() {
+
+export default function NewGoal(props) {
     const addGoalHandleer = (event) =>{
       event.preventDefault()
+      
       const newGoal = {
         id: Math.random().toString(),
         text: 'My new goal!'
      }
-     console.log(newGoal)
+  props.onAddGoal(newGoal)
     }
   return (
     <form className='new-goal' onSubmit={addGoalHandleer}>
