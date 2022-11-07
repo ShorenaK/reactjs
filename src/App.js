@@ -1,15 +1,12 @@
 
 import './App.css';
 import React from 'react'
-
+import GoalList from './components/GoalList';
 function App() {
   return (
     <div className="course-goals">
       <h1> Hi, this is Reactjs!</h1>
-      <ul className='goal-list'>
-        <li>helloo</li>
-        <li>again</li>
-        </ul>
+      <GoalList/>
     </div>
   );
   }
