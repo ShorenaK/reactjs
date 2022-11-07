@@ -1,11 +1,15 @@
 import React from 'react'
-import '/GoalList.css'
 
-export default function GoalList() {
+
+export default function GoalList(props) {
+    console.log(props.goals)
   return (
-    <ul className='goal-list'>
-        <li>helloo</li>
-        <li>again</li>
-        </ul>
+    <ul className='goal-list'>{ 
+        props.goals.map((goal) => {
+            return <li key={goal.id}>{goal.text}</li>;
+               <li>{goal.text}</li>
+        })
+       
+    } </ul>
   );
 };
