@@ -3,6 +3,8 @@ import "./UserItem.css"
 
 export default function UserItem(props) {
   return (
-    <div>UsserItem</div>
+    <div className='user-item'>
+
+    </div>
   )
 }
