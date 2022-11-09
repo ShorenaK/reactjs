@@ -1,6 +1,6 @@
 import React from 'react'
 import UserItem from './UserItem'
-import './UserItem.css ' 
+import './UserList.css ' 
 
 
 export default function UsersList(props) {
@@ -13,7 +13,12 @@ export default function UsersList(props) {
 }
   return  ( <ul>
     {props.item.map(user =>{
-        return < UserItem/>
+        return < UserItem 
+        key={user.id} 
+        id={user.id} 
+        image={user.image} 
+        name={user.name}
+        placeCount={user.places}/>
 
     })}
 
