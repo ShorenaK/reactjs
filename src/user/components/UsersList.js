@@ -11,7 +11,7 @@ export default function UsersList(props) {
     </div>
   )
 }
-  return  ( <ul className='user-list'>
+  return  ( <ul className='users-list'>
     {props.items.map(user =>{
         return < UserItem 
         key={user.id} 
