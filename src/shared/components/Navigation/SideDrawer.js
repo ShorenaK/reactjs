@@ -1,0 +1,8 @@
+import React from 'react'
+import './SideDrawer.css'
+
+export default function SideDrawer(props) {
+  return (
+    <div>SideDrawer</div>
+  )
+}

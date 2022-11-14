@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 import MainHeader from './MainHeader'
-import NavLinks from '.NavLinks'
+import NavLinks from './NavLinks'
 
 import './MainNavigation.css'
 
@@ -18,7 +18,7 @@ export default function MainNavigation() {
     <Link to="/"> Your Places </Link>
     
     </h1>
-    <nav>
+    <nav className='main-navigation__header-nav'>
     <NavLinks/>
     </nav>
    </MainHeader>
