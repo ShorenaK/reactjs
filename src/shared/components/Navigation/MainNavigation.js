@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import MainHeader from './MainHeader'
 import NavLinks from './NavLinks'
 import SideDrawer from './SideDrawer'
+import Backdrop from '../UIElements/Backdrop'
 
 import './MainNavigation.css'
 
@@ -19,12 +20,13 @@ export default function MainNavigation(props) {
    
   return (
    <React.Fragment> 
-   {drawerIsOpen ? 
-   <SideDrawer> 
+      {drawerIsOpen && < Backdrop onClick={closeDrawer}/>}
+  
+   <SideDrawer show={drawerIsOpen}> 
       <nav className='main-navigation__drawer-nav'> 
    <NavLinks />
    </nav>
-   </SideDrawer> : null}
+   </SideDrawer> 
 
    <MainHeader>
 <button className='main-navigation__menu-btn' onClick={openDrawer}>
