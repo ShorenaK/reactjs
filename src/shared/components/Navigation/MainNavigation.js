@@ -7,12 +7,13 @@ import SideDrawer from './SideDrawer'
 
 import './MainNavigation.css'
 
-export default function MainNavigation() {
+export default function MainNavigation(props) {
   return (
    <React.Fragment> 
    <SideDrawer> 
-      <nav className='main-navogation__drawer-nav '> </nav>
+      <nav className='main-navigation__drawer-nav'> 
    <NavLinks />
+   </nav>
    </SideDrawer>
 
    <MainHeader>

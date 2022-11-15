@@ -3,6 +3,7 @@ import './SideDrawer.css'
 
 export default function SideDrawer(props) {
   return (
-    <aside className='side-drawer'>{props.childeren}</aside>
+   
+      <aside className="side-drawer">{props.children}</aside>
   )
 }

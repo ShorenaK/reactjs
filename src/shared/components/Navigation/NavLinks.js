@@ -1,6 +1,7 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 import './NavLinks.css'
+
 export default function NavLinks(props) {
   return (
   <ul className='nav-links'>
