@@ -4,7 +4,7 @@ import Card from '../../shared/components/UIElements/Card';
 import './PlaceItem.css'
 
 
-export default function PlaceItime(props) {
+export default function PlaceItem(props) {
   return (
     <li className='place-item'> 
     <Card className="place-item__content"> 
@@ -17,7 +17,7 @@ export default function PlaceItime(props) {
 <p>{props.description}</p>
    </div>
    
-   <div className='place-itme__actions'> 
+   <div className='place-item__actions'> 
    <button> View On Map</button>
    <button> Edit</button>
    <button> Delete</button>
