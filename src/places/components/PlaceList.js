@@ -6,7 +6,7 @@ import './PlaceList.css'
 
 
 export default function PlaceList(props) {
-  if (props.itmes.length === 0){ 
+  if (props.items.length === 0){ 
   return (
     <div className='place-list center'> 
     <Card>
@@ -16,8 +16,9 @@ export default function PlaceList(props) {
     </div>
   )
 }
-return <ul className='place-list'>
-{props.itmes.map(place => <PlaceItem 
+return (<ul className='place-list'>
+{props.items.map(place => 
+( <PlaceItem 
 key={place.id} 
 id={place.id} 
 image={place.imageUrl}
@@ -26,7 +27,8 @@ description={place.description}
 address={place.address}
 creatorId={place.creator}
 coordinates={place.location}
-/>
+/>)
 )}
 </ul>
+ )
 }
