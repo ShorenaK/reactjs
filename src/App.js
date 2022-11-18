@@ -1,5 +1,4 @@
 
-
 import 
 {BrowserRouter as Router,
  Route,
@@ -20,9 +19,11 @@ function App() {
     <MainNavigation/>
     <main> 
     <Switch> 
+
     <Route path="/" exact>
-  <Users />
+  <Users/>
     </Route>
+
     <Route path="/:userId/places" exact>
       <UserPlaces/>
     </Route>
@@ -30,9 +31,11 @@ function App() {
     <Route path="/place/new" exact>
       <NewPlace/>
     </Route>
+
     <Redirect to="/"/>
     </Switch>
     </main>
+
    </Router>
   )
   }
