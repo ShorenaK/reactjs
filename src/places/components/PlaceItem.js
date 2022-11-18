@@ -20,7 +20,7 @@ export default function PlaceItem(props) {
    <div className='place-item__actions'> 
    <Button inverse> View On Map</Button>
    <Button to={`/places/${props.id}`}> Edit</Button>
-   <Button> Delete</Button>
+   <Button danger> Delete</Button>
    </div>
    </Card>
    </li>
