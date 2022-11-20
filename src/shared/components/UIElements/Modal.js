@@ -39,6 +39,7 @@ onmountOnExit
 timeout={200}
 classNames="modal"
 > 
+<ModalOverlay {...props}/>
 </CSSTransition>
   </React.Fragment>
 }
