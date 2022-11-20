@@ -23,7 +23,8 @@ const closedMapHandler = () => setShowMap(false)
      footer={<Button onClick={closedMapHandler}>CLOSE</Button>}
      > 
   <div className='map-container'>
-
+  <h2> THE MAP !
+  </h2>
   </div>
 
      </Modal>
@@ -39,7 +40,7 @@ const closedMapHandler = () => setShowMap(false)
    </div>
    
    <div className='place-item__actions'> 
-   <Button inverse> View On Map</Button>
+   <Button inverse onClick={openMapHandler}> View On Map</Button>
    <Button to={`/places/${props.id}`}> Edit</Button>
    <Button danger> Delete</Button>
    </div>
