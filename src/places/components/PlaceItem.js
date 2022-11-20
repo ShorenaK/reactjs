@@ -1,9 +1,32 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Card from '../../shared/components/UIElements/Card';
 import Button from '../../shared/components/FormElements/Button'
+import Modal from '../../shared/components/UIElements/Modal';
+
+
 import './PlaceItem.css'
+
+
 export default function PlaceItem(props) {
+const [showMap, setShowMap] = useState(false)
+
+const openMapHandler = () => setShowMap(true)
+const closedMapHandler = () => setShowMap(false)
+
   return (
+    <React.Fragment>
+    <Modal show={showMap}
+     onCancle={closedMapHandler}
+     header={props.address}
+     contentClass="palce-item__modal-content"
+     footerClass="place-itme__modal-actions"
+     footer={<Button onClick={closedMapHandler}>CLOSE</Button>}
+     > 
+  <div className='map-container'>
+
+  </div>
+
+     </Modal>
     <li className='place-item'> 
     <Card className="place-item__content"> 
    <div className='place-item__image'> 
@@ -22,5 +45,6 @@ export default function PlaceItem(props) {
    </div>
    </Card>
    </li>
+   </React.Fragment>
   )
 }
