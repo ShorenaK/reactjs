@@ -2,7 +2,7 @@ import React, {useRef, useEffect} from 'react'
 
 import './Map.css'
 
-export default function Map() {
+export default function Map(props) {
 
     const mapRef = useRef()
     const { center, zoom } = props;
