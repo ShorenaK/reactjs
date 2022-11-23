@@ -29,7 +29,7 @@ function App() {
     </Route>
 
     <Route path="/place/new" exact>
-      <NewPlace/>
+      <NewPlace />
     </Route>
 
     <Redirect to="/"/>

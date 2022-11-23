@@ -1,16 +1,15 @@
-import React from 'react'
+import React from 'react';
 
-import './NewPlace.css'
+import Input from '../../shared/components/FormElements/Input';
+import './NewPlace.css';
 
-export default function NewPlace() {
+const NewPlace = () => {
   return (
-    <form className='place-form'> 
-    <Input type="text"
-    lable="Title"
-    validators={[]}
-    onChange={}
-    
-    />
+    <form className="place-form">
+      <Input element="input" type="text" label="Title" />
     </form>
-  )
-}
+  );
+};
+
+export default NewPlace;
+
