@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function NewPlace() {
   return (
-    <div>NewPlace Works</div>
+    <form className='place-form'> 
+
+    </form>
   )
 }
