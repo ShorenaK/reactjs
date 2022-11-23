@@ -24,13 +24,13 @@ function App() {
   <Users/>
     </Route>
 
-    <Route path="/:userId/places" exact>
+    <Route exact path="/:userId/places" >
       <UserPlaces/>
-    </Route>
+      </Route>
 
-    <Route path="/place/new" exact>
-      <NewPlace />
-    </Route>
+      <Route exact path="/places/new" >
+      <NewPlace/>
+      </Route>
 
     <Redirect to="/"/>
     </Switch>
