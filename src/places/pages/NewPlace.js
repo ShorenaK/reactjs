@@ -6,7 +6,7 @@ import Button from '../../shared/components/FormElements/Button'
 import { VALIDATOR_REQUIRE, VALIDATOR_MINLENGTH } from '../../shared/util/validators';
 
 
-import './NewPlace.css';
+import './PlaceFrom.css';
 
 
 const formReducer = (state, action)=>{
