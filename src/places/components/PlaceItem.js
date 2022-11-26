@@ -8,9 +8,22 @@ import './PlaceItem.css'
 
 export default function PlaceItem(props) {
 const [showMap, setShowMap] = useState(false)
+const [showConfirmModal, setshowConfirmModal] = useState(false)
+
 
 const openMapHandler = () => setShowMap(true)
 const closeMapHandler = () => setShowMap(false)
+
+ const showDeleteWarningHandler = ()=>{
+   
+ }
+ const cancelDeleteHandler = ()=>{
+
+ }
+ const confirmDeleteHandler = ()=>{
+
+ }
+
 
   return (
     <React.Fragment>
