@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Input from '../../shared/components/FormElements/Input';
 import Button from '../../shared/components/FormElements/Button';
 import {
@@ -8,7 +7,6 @@ import {
 } from '../../shared/util/validators';
 import { useForm } from '../../shared/hooks/form-hook';
 import './PlaceForm.css';
-
 const NewPlace = () => {
   const [formState, inputHandler] = useForm(
     {
@@ -27,12 +25,10 @@ const NewPlace = () => {
     },
     false
   );
-
   const placeSubmitHandler = event => {
     event.preventDefault();
     console.log(formState.inputs); // send this to the backend!
   };
-
   return (
     <form className="place-form" onSubmit={placeSubmitHandler}>
       <Input
