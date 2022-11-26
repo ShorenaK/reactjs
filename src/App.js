@@ -1,108 +1,77 @@
-import React, { useState, useContext } from 'react';
-
-import Card from '../../shared/components/UIElements/Card';
-import Input from '../../shared/components/FormElements/Input';
-import Button from '../../shared/components/FormElements/Button';
+import React, { useState, useCallback } from 'react';
 import {
-  VALIDATOR_EMAIL,
-  VALIDATOR_MINLENGTH,
-  VALIDATOR_REQUIRE
-} from '../../shared/util/validators';
-import { useForm } from '../../shared/hooks/form-hook';
-import { AuthContext } from '../../shared/context/auth-context';
-import './Auth.css';
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch
+} from 'react-router-dom';
 
-const Auth = () => {
-  const auth = useContext(AuthContext);
-  const [isLoginMode, setIsLoginMode] = useState(true);
+import Users from './user/pages/Users';
+import NewPlace from './places/pages/NewPlace';
+import UserPlaces from './places/pages/UserPlaces';
+import UpdatePlace from './places/pages/UpdatePlace';
+import Auth from './user/pages/Auth';
+import MainNavigation from './shared/components/Navigation/MainNavigation';
+import { AuthContext } from './shared/context/auth-context';
 
-  const [formState, inputHandler, setFormData] = useForm(
-    {
-      email: {
-        value: '',
-        isValid: false
-      },
-      password: {
-        value: '',
-        isValid: false
-      }
-    },
-    false
-  );
+const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const switchModeHandler = () => {
-    if (!isLoginMode) {
-      setFormData(
-        {
-          ...formState.inputs,
-          name: undefined
-        },
-        formState.inputs.email.isValid && formState.inputs.password.isValid
-      );
-    } else {
-      setFormData(
-        {
-          ...formState.inputs,
-          name: {
-            value: '',
-            isValid: false
-          }
-        },
-        false
-      );
-    }
-    setIsLoginMode(prevMode => !prevMode);
-  };
+  const login = useCallback(() => {
+    setIsLoggedIn(true);
+  }, []);
 
-  const authSubmitHandler = event => {
-    event.preventDefault();
-    console.log(formState.inputs);
-    auth.login();
-  };
+  const logout = useCallback(() => {
+    setIsLoggedIn(false);
+  }, []);
+
+  let routes;
+
+  if (isLoggedIn) {
+    routes = (
+      <Switch>
+        <Route path="/" exact>
+          <Users />
+        </Route>
+        <Route path="/:userId/places" exact>
+          <UserPlaces />
+        </Route>
+        <Route path="/places/new" exact>
+          <NewPlace />
+        </Route>
+        <Route path="/places/:placeId">
+          <UpdatePlace />
+        </Route>
+        <Redirect to="/" />
+      </Switch>
+    );
+  } else {
+    routes = (
+      <Switch>
+        <Route path="/" exact>
+          <Users />
+        </Route>
+        <Route path="/:userId/places" exact>
+          <UserPlaces />
+        </Route>
+        <Route path="/auth">
+          <Auth />
+        </Route>
+        <Redirect to="/auth" />
+      </Switch>
+    );
+  }
 
   return (
-    <Card className="authentication">
-      <h2>Login Required</h2>
-      <hr />
-      <form onSubmit={authSubmitHandler}>
-        {!isLoginMode && (
-          <Input
-            element="input"
-            id="name"
-            type="text"
-            label="Your Name"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a name."
-            onInput={inputHandler}
-          />
-        )}
-        <Input
-          element="input"
-          id="email"
-          type="email"
-          label="E-Mail"
-          validators={[VALIDATOR_EMAIL()]}
-          errorText="Please enter a valid email address."
-          onInput={inputHandler}
-        />
-        <Input
-          element="input"
-          id="password"
-          type="password"
-          label="Password"
-          validators={[VALIDATOR_MINLENGTH(5)]}
-          errorText="Please enter a valid password, at least 5 characters."
-          onInput={inputHandler}
-        />
-        <Button type="submit" disabled={!formState.isValid}>
-          {isLoginMode ? 'LOGIN' : 'SIGNUP'}
-        </Button>
-      </form>
-      <Button inverse onClick={switchModeHandler}>
-        SWITCH TO {isLoginMode ? 'SIGNUP' : 'LOGIN'}
-      </Button>
-    </Card>
+    <AuthContext.Provider
+      value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
+    >
+      <Router>
+        <MainNavigation />
+        <main>{routes}</main>
+      </Router>
+    </AuthContext.Provider>
   );
 };
 
-export default Auth;
+export default App;
