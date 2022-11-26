@@ -26,6 +26,16 @@ const closeMapHandler = () => setShowMap(false)
   </div>
 
      </Modal>
+     <Modal header="Are you sure?" footerClass="place-item__modal-actions" footer={
+      <React.Fragment>
+         <Button inverse>CANCEL</Button>
+         <Button danger>DELETE</Button>
+      </React.Fragment>
+     }> 
+      <p> Do you want to proceed and delete this place? 
+         Please note that it can't be undon thereafter
+      </p>
+     </Modal>
     <li className='place-item'> 
     <Card className="place-item__content"> 
    <div className='place-item__image'> 
