@@ -63,7 +63,7 @@ const Auth = () => {
 
     if (isLoginMode) {
       try {
-       const responseData =  await sendRequest(
+        const responseData = await sendRequest(
           'http://localhost:7000/api/users/login',
           'POST',
           JSON.stringify({
@@ -78,7 +78,7 @@ const Auth = () => {
       } catch (err) {}
     } else {
       try {
-       const responseData =  await sendRequest(
+        const responseData = await sendRequest(
           'http://localhost:7000/api/users/signup',
           'POST',
           JSON.stringify({
