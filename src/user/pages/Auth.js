@@ -60,17 +60,24 @@ const Auth = () => {
     if (isLoginMode){
        
     }else{ 
-     await fetch('http://localhost:7000/api/users/signup', {
-        method: 'POST', 
-        headers: {
-          "Content-Type": "application/json"
-        }, 
-        body: JSON.stringify({
-          name: formState.inputs.name.value, 
-          email:formState.inputs.email.value , 
-          password: formState.inputs.password.value
+      try{ 
+        const response = await fetch('http://localhost:7000/api/users/signup', {
+          method: 'POST', 
+          headers: {
+            "Content-Type": "application/json"
+          }, 
+          body: JSON.stringify({
+            name: formState.inputs.name.value, 
+            email:formState.inputs.email.value , 
+            password: formState.inputs.password.value
+          })
         })
-      })
+        const responseData = await response.json()
+        console.log(responseData)
+      }catch{
+        console.log(err)
+      }
+     
     }
     auth.login();
   };
