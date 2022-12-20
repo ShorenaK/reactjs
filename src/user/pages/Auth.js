@@ -74,7 +74,7 @@ const Auth = () => {
         })
         const responseData = await response.json()
         console.log(responseData)
-      }catch{
+      }catch(err){
         console.log(err)
       }
      
