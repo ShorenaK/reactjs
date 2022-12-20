@@ -4,7 +4,11 @@ export const useHttpClient = () =>{
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState();
 
-    const sendRequest = () => {
-        
+    const sendRequest = (url, method = 'GET', body = null, headers={}) => {
+        fetch(url, {
+            method, 
+            body, 
+            headers
+        })
     }
 }
