@@ -62,7 +62,7 @@ const Auth = () => {
     if (isLoginMode) {
     } else {
       try {
-        setIsLoding(true)
+        setIsLoading(true)
         const response = await fetch('http://localhost:7000/api/users/signup', {
           method: 'POST',
           headers: {
