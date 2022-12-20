@@ -56,17 +56,22 @@ const Auth = () => {
 
   const authSubmitHandler = async event => {
     event.preventDefault();
-  fetch('http://localhost:7000/api/users/signup', {
-    method: 'POST', 
-    headers: {
-      "Content-Type": "application/json"
-    }, 
-    body: JSON.stringify({
-      name: formState.inputs.name.value, 
-      email:formState.inputs.email.value , 
-      password: formState.inputs.password.value
-    })
-  })
+
+    if (isLoginMode){
+       
+    }else{ 
+     await fetch('http://localhost:7000/api/users/signup', {
+        method: 'POST', 
+        headers: {
+          "Content-Type": "application/json"
+        }, 
+        body: JSON.stringify({
+          name: formState.inputs.name.value, 
+          email:formState.inputs.email.value , 
+          password: formState.inputs.password.value
+        })
+      })
+    }
     auth.login();
   };
 
